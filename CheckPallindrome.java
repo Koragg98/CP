@@ -6,27 +6,47 @@ import java.util.Scanner;
  */
 public class CheckPallindrome {
 
-    public static void main(String[] args) {
-        String str;
-        Scanner sc=new Scanner(System.in);
-        str=sc.next();
+    public static boolean isPallindrome(int n)
+    {
+        boolean flag=false;
+        if(n<0)
+            flag=false;
+        else
+        {
+            int rev=0;
+            int num=n;
+            while(num!=0)
+            {
+                rev=rev*10+(num%10);
+                num/=10;   
+            }
+            if(rev==n)
+                flag=true;
+        }
+        return flag;
+    }
+    public static boolean isPallindrome(String n)
+    {
+        String str=n;
         int l=0;
-        int h=str.length()-1,flag=0;
+        int h=str.length()-1,flag=1;
         while(l<=h)
         {
-            if(str.charAt(l++)==str.charAt(h--))
-                flag=1;
-            else
+            if(str.charAt(l)!=str.charAt(h))
             {   
                 flag=0;
                 break;
             }
+                
+            else
+            {   
+                l++;
+                h--;
+            }
         }
-        if(flag==1)
-            System.out.println("YES");
-        else
-            System.out.println("NO");
-        
+        return flag==1;
     }
-
+    public static void main(String[] args) {
+        System.out.println(CheckPallindrome.isPallindrome(556));
+    }
 }
