@@ -7,13 +7,10 @@ public class CheckArmstrong {
     
     public static boolean isArmstrong(int num)
     {
-        int digit=Integer.toString(num).length();
-		int unit_digit=0,sum=0,temp=num;
-		
+       		int sum=0,temp=num;
 		while(temp!=0)
 		{
-			unit_digit=temp%10;
-			sum+=(int)Math.pow(unit_digit,digit);
+			sum+=((temp%10)*(temp%10)*(temp%10));
 			temp/=10;
 		}
 		return num==sum;
