@@ -22,6 +22,10 @@ public class ConcatenationOfArray {
 //            arr[i]=nums[i];
 //            arr[i+n]=nums[i];
 //        }
+        // for(int i=0;i<arr.length;i++)
+        // {
+        //     arr[i]=nums[i%nums.length];
+        // }
         System.arraycopy(nums, 0, arr, 0, n);
         System.arraycopy(nums, 0, arr, n, n );      //src,src pos,dest,dest pos,length (length means how long will be copled)
         return arr;
